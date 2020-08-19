@@ -1,18 +1,11 @@
 import React, { Component } from "react";
-import {View, Text, TouchableWithoutFeedback, AsyncStorage} from "react-native";
-import {Actions} from "react-native-router-flux";
+import {View, Text} from "react-native";
 import {connect} from "react-redux";
 import {authScreenSwitch, signUp} from "../actions/AuthActions"
 import {Card, CardSection, Button, Spinner} from "./common";
 import SignInForm from "./SignInForm";
 
 class SignUp extends Component{
-
-    // async renderLogin(){
-    //     if(await AsyncStorage.getItem("loggedIn")){
-    //         Actions.chatFlow();
-    //     }
-    // }
 
     onButtonPress(){
         const {username, email, password} = this.props;
@@ -45,16 +38,9 @@ class SignUp extends Component{
     }
 
     render(){
-        // {this.renderLogin()}
         return(
             <View style={styles.containerStyle}>
                 <SignInForm headerText="Please Sign Up" />
-                {/* <TouchableWithoutFeedback onPress={() => {
-                    this.props.authScreenSwitch()
-                    Actions.signIn()
-                }}>
-                    <Text style={styles.textStyle}>Already have an account? Sign in instead...</Text>
-                </TouchableWithoutFeedback> */}
                 <Card>
                     {this.renderError()}
                     <CardSection>
@@ -69,7 +55,6 @@ class SignUp extends Component{
 const styles = {
     containerStyle: {
         flex: 1,
-        backgroundColor: '#e1f2fb',
         paddingTop: 150,
         paddingHorizontal: 20
     },

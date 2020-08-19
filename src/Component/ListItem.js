@@ -8,17 +8,17 @@ class ListItem extends Component{
 
     renderList(){
         const {currentUser} = firebase.auth();
-        const {name, id} = this.props.user;
+        const {username, id} = this.props.user;
 
         if(currentUser.uid !== id){
             return(
-                <TouchableWithoutFeedback onPress={() => Actions.composeMessage({id})}>
+                <TouchableWithoutFeedback onPress={() => Actions.composeMessage({id, username})}>
                 <View>
-                    <CardSection style={{backgroundColor: '#e1f2fb', paddingVertical: 15, paddingLeft: 10}}>
+                    <CardSection style={styles.cardStyle}>
                         <View style={styles.circle}>
-                            <Text style={styles.textStyle}>{name.substring(0,2)}</Text>
+                            <Text style={styles.textStyle}>{username.substring(0,2)}</Text>
                         </View>
-                        <Text style={{fontSize: 24, paddingLeft: 15, paddingTop: 5}}>{name}</Text>
+                        <Text style={{fontSize: 24, paddingLeft: 15, paddingTop: 5}}>{username}</Text>
                     </CardSection>
                 </View>
             </TouchableWithoutFeedback>
@@ -39,7 +39,7 @@ const styles = {
     circle: {
         borderWidth: 2,
         borderRadius: 100,
-        borderColor: '#000',
+        borderColor: '#838383',
         height: 50,
         width: 50,
     },
@@ -47,6 +47,14 @@ const styles = {
         alignSelf: 'center',
         fontSize: 24,
         paddingTop: 5
+    },
+    cardStyle: {
+        marginHorizontal: 10,
+        paddingVertical: 10, 
+        paddingLeft: 10,
+        borderWidth: 1,
+        borderColor: '#838383',
+        backgroundColor: '#eeeeee'
     }
 }
 

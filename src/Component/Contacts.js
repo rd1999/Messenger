@@ -2,14 +2,13 @@ import _ from "lodash";
 import React, { Component } from "react";
 import {FlatList, Text, View} from "react-native";
 import {connect} from "react-redux";
-import {nameFetch, nameSave} from "../actions/MainActions";
+import {nameFetch} from "../actions/MainActions";
 import ListItem from "./ListItem";
 
 
 class Contact extends Component{
 
     componentWillMount(){
-        // this.props.nameSave(this.props.username);
         this.props.nameFetch();
     }
 
@@ -36,9 +35,7 @@ const mapStateToProps = (state) => {
         return {...val, uid}
     })
 
-    const {username} = state.auth;
-
-    return {users, username}
+    return {users}
 }
 
 const styles = {
@@ -50,9 +47,8 @@ const styles = {
         paddingLeft: 15
     },
     containerStyle: {
-        flex: 1,
-        backgroundColor: '#e1f2fb'
+        flex: 1
     }
 }
 
-export default connect(mapStateToProps, {nameFetch, nameSave})(Contact);
+export default connect(mapStateToProps, {nameFetch})(Contact);

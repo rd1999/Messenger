@@ -19,7 +19,6 @@ const styles = {
         borderColor: '#000',
         position: 'relative',
         borderRadius: 10,
-        // backgroundColor: '#f4ea8e'
     }
 }
 

@@ -7,11 +7,7 @@ import ReduxThunk from "redux-thunk"
 import reducers from "./reducers";
 import MainRouter from "./MainRouter";
 import AuthRouter from "./AuthRouter";
-import Account from "./Component/Account";
-import SignUp from "./Component/SignUp";
 import {Spinner} from "./Component/common"
-import Contacts from "./Component/Contacts";
-import Home from "./Component/Home";
 
 class App extends Component{
 

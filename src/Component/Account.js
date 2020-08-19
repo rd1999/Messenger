@@ -1,11 +1,10 @@
 import _ from "lodash";
 import React, { Component } from "react";
-import {View, AsyncStorage} from "react-native";
+import {View} from "react-native";
 import firebase from "firebase";
 import {connect} from "react-redux";
 import {nameFetch} from "../actions/MainActions";
 import {Button, CardSection} from "./common";
-import { Actions } from "react-native-router-flux";
 
 class Chats extends Component{
 
@@ -23,14 +22,6 @@ class Chats extends Component{
             }
         })
     }
-
-    // deleteAccount(){
-    //     FIRAuth.auth()?.currentUser?.delete(completion: { (err) in
-
-    //         print(err?.localizedDescription)
-
-    //     })
-    // }
 
     render(){
         return(
@@ -61,4 +52,3 @@ const mapStateToProps = (state) => {
 }
 
 export default connect( mapStateToProps, {nameFetch})(Chats);
-// export default Chats;

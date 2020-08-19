@@ -1,6 +1,6 @@
 import _ from "lodash"
 import React, {Component} from "react";
-import {View, Text, TextInput, TouchableOpacity, FlatList} from "react-native";
+import {View, TextInput, TouchableOpacity, FlatList} from "react-native";
 import firebase from "firebase";
 import {connect} from "react-redux";
 import Icon from "react-native-vector-icons/FontAwesome";
@@ -25,18 +25,6 @@ class Compose extends Component{
         this.props.messageSaved(text, uid, id)
     }
 
-    // onSend(messages= []) {
-    //     const text = this.props.text;
-    //     const {currentUser} = firebase.auth();
-    //     const {uid} = currentUser;
-    //     const id = this.props.id;
-    //     this.props.messageSaved(text, uid, id)
-    //     this.setState(previousState => ({
-    //         messages: GiftedChat.append(previousState.messages, messages.text),
-    //     }))
-    //     alert(this.state.messages.length)
-    // }
-
     renderIcon(){
         if(this.props.text){
             return(
@@ -53,6 +41,7 @@ class Compose extends Component{
 
         return(
             <View style={{flex:4}}>
+            <Header headerText={this.props.username} textStyle={{fontSize: 25, fontWeight: 'bold'}} />
                 <View style={{flex: 3}}>
                     <FlatList 
                         data={this.props.messages.reverse()}
